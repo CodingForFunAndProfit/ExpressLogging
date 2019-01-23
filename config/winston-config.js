@@ -69,7 +69,7 @@ logger.stream = {
 logger.combinedFormat = function(err, req, res) {
   // Similar combined format in morgan
   // :remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"
-  return `${req.ip} - - [${clfDate(new Date())}] \"${req.method} ${req.originalUrl} HTTP/${req.httpVersion}\" ${err.status || 500} - ${req.headers["user-agent"]}`;
+  return `[${clfDate(new Date())}] - ${req.ip} - \"${req.method} ${req.originalUrl} HTTP/${req.httpVersion}\" ${err.status || 500} - ${req.headers["user-agent"]}`;
 };
 
 module.exports = logger;
